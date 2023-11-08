@@ -963,7 +963,7 @@
     - #CUSTOM CURSOR
   -->
 
-  <div class="cursor" data-cursor></div>
+  <!-- <div class="cursor" data-cursor></div> -->
 
 
 
@@ -973,7 +973,11 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
-
+  <script type="module">
+    import { rainbowCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+  
+    new rainbowCursor();
+  </script>
 </body>
 
 </html>
