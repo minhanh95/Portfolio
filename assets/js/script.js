@@ -236,3 +236,29 @@ document.body.addEventListener("mouseout", function () {
 document.body.addEventListener("mouseover", function () {
   cursor.classList.remove("disabled");
 });
+document.querySelectorAll('.image-box').forEach(box => {
+  box.addEventListener('click', function() {
+    const imageBox = this;
+    imageBox.classList.add('jump');
+
+    setTimeout(() => {
+      imageBox.classList.remove('jump');
+      imageBox.classList.add('fall');
+    }, 500);
+
+    setTimeout(() => {
+      imageBox.classList.add('scroll');
+    }, 1000);
+  });
+});
+window.addEventListener('scroll', function() {
+  const scrollTop = window.scrollY;
+
+  // Define the rotation based on the scroll position
+  const rotation = `rotate(${scrollTop / 5}deg)`;
+
+  // Apply the rotation to the image box
+  document.querySelectorAll('.image-box').forEach(box => {
+    box.style.transform = rotation;
+  });
+});
